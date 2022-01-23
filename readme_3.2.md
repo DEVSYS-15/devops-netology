@@ -33,7 +33,7 @@
 
 11.Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью /proc/cpuinfo.
     
-    cat /proc/cpuinfo |   grep sse | sort -u | xargs -n 1  | grep ^sse
+    cat /proc/cpuinfo |   grep flags | sort -u | xargs -n 1  | grep ^sse
         sse
         sse2
         sse4_1
