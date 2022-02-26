@@ -7,6 +7,73 @@ Username: rviews
 show ip route x.x.x.x/32
 show bgp x.x.x.x/32
 ```
+```bash 
+show ip  route show ?
+  A.B.C.D          Network mask
+  longer-prefixes  Show route matching the specified Network/Mask pair only
+  |                Output modifiers
+  <cr>
+
+судя по ман делаю все верно , но
+
+show ip  route 95.131.149.246/32             
+                             ^
+% Invalid input detected at '^' marker.
+
+show  ip  route 95.131.149.246   
+Routing entry for 95.131.144.0/21
+  Known via "bgp 6447", distance 20, metric 0
+  Tag 8283, type external
+  Last update from 94.142.247.3 07:25:45 ago
+  Routing Descriptor Blocks:
+  * 94.142.247.3, from 94.142.247.3, 07:25:45 ago
+      Route metric is 0, traffic share count is 1
+      AS Hops 2
+      Route tag 8283
+      MPLS label: none
+
+
+
+show bgp 95.131.149.246/32
+% Network not in table
+
+show bgp 95.131.149.246   
+BGP routing table entry for 95.131.144.0/21, version 323191310
+Paths: (22 available, best #2, table default)
+  Not advertised to any peer
+  Refresh Epoch 1
+  3333 41275
+    193.0.0.56 from 193.0.0.56 (193.0.0.56)
+      Origin IGP, localpref 100, valid, external
+      path 7FE15AE62E50 RPKI State valid
+      rx pathid: 0, tx pathid: 0
+  Refresh Epoch 1
+  8283 41275
+    94.142.247.3 from 94.142.247.3 (94.142.247.3)
+      Origin IGP, metric 0, localpref 100, valid, external, best
+      Community: 8283:1 8283:101 8283:103
+      unknown transitive attribute: flag 0xE0 type 0x20 length 0x24
+        value 0000 205B 0000 0000 0000 0001 0000 205B
+              0000 0005 0000 0001 0000 205B 0000 0005
+              0000 0003 
+      path 7FE15D3DFE48 RPKI State valid
+      rx pathid: 0, tx pathid: 0x0
+  Refresh Epoch 1
+  1351 6939 35598 41275
+    132.198.255.253 from 132.198.255.253 (132.198.255.253)
+      Origin IGP, localpref 100, valid, external
+      path 7FE12411C6C8 RPKI State valid
+      rx pathid: 0, tx pathid: 0
+  Refresh Epoch 1
+
+
+
+
+
+```
+
+
+
 2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
 
 ```bash
