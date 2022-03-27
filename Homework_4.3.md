@@ -23,7 +23,7 @@
  "elements": [
      {"name": "first",
       "type": "server",
-      "ip": 7175
+      "ip": "7.1.7.5"
       },
      {"name": "second",
       "type": "proxy",
