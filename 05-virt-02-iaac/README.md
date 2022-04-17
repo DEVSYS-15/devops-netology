@@ -39,18 +39,27 @@
 Установить на личный компьютер:
 
 - KVM
-  - QEMU emulator version 4.2.1 (openSUSE Leap 15.2)
+```shell
+$ qemu-kvm --vesion
+  QEMU emulator version 4.2.1 (openSUSE Leap 15.2)
+```
+  - 
 
 - Vagrant
-  - Vagrant 2.2.7
+```shell
+$ vagrant --version
+  Vagrant 2.2.7
+```
 - Ansible
-  - ansible 2.9.21
+```shell
+$ ansible --version
+    ansible 2.9.21
     config file = /etc/ansible/ansible.cfg
     configured module search path = ['/home/serz/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
     ansible python module location = /usr/lib/python3.6/site-packages/ansible
     executable location = /usr/bin/ansible
     python version = 3.6.12 (default, Dec 02 2020, 09:44:23) [GCC]
-
+```
 *Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.*
 
 ## Задача 4 (*)
