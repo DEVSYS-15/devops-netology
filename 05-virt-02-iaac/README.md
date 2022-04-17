@@ -58,7 +58,21 @@
 Воспроизвести практическую часть лекции самостоятельно.
 
 - Создать виртуальную машину.
+```
+vagrant status 
+Current machine states:
+
+server1.netology          running (libvirt)
+
+The Libvirt domain is running. To stop this machine, you can run
+`vagrant halt`. To destroy the machine, you can run `vagrant destroy`.
+
+
+```
 - Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
 ```
 docker ps
+vagrant@server1:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
 ```
