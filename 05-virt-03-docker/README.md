@@ -36,7 +36,7 @@ Hey, Netology
 
 
 - docker cp index.html netology:/usr/share/nginx/html/index.html
-- [hub.docker.com](https://hub.docker.com/r/devsys15/netology/)
+- [hub.docker.com](https://hub.docker.com/layers/205093342/devsys15/netology/5.01/images/sha256-09a0cd46bbff7791b667ca0ed522dde6cba90b8e19041779b905e84aa1d7bc7a?context=repo)
 
 
 ## Задача 2
@@ -108,7 +108,7 @@ bash-5.1# ls /data/
 Воспроизвести практическую часть лекции самостоятельно.
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
-
+ [hub.docker.com](https://hub.docker.com/layers/205087562/devsys15/netology/5.03/images/sha256-57ad3c91a4bf225cef781fda1f1bc4c549302cf77950c1fba39f05ad21d61de5?context=repo)
 
 ---
 
