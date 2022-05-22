@@ -55,6 +55,8 @@ docker run --name postgres -e POSTGRES_PASSWORD=postgres -it --rm -v db-data:/va
   - GRANT ALL PRIVILEGES ON DATABASE  test_db to "test-admin-user"  
 - создайте пользователя test-simple-user 
   - create user "test-simple-user" with password '123';
+  - CREATE SCHEMA test_schema
+  - SET search_path TO test_schema, public;
 - предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db
   - GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES  IN SCHEMA test_schema  to "test-simple-user"
 
@@ -86,7 +88,7 @@ docker run --name postgres -e POSTGRES_PASSWORD=postgres -it --rm -v db-data:/va
   (4 rows)
     ```
 - описание таблиц (describe)
-  - ```postgres-sql
+  ```postgres-sql
     test_db=# \d clients
                                       Table "public.clients"
           Column       |  Type   | Collation | Nullable |               Default               
@@ -116,7 +118,7 @@ docker run --name postgres -e POSTGRES_PASSWORD=postgres -it --rm -v db-data:/va
    ```
 
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
-- SELECT * FROM information_schema.table_privileges where table_name = 'order' or table_name = 'clients'
+  - SELECT * FROM information_schema.table_privileges where table_name = 'order' or table_name = 'clients'
 - список пользователей с правами над таблицами test_db
 ```text
      grantor  |     grantee      | table_catalog | table_schema | table_name | privilege_type | is_grantable | with_hierarchy 
