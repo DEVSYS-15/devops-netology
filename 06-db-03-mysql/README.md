@@ -168,7 +168,10 @@ SELECT TABLE_NAME,ENGINE FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'te
 Измените `engine` и **приведите время выполнения и запрос на изменения из профайлера в ответе**:
 - на `MyISAM`
 - на `InnoDB`
-
+```text
+9 | 0.63893250 | ALTER TABLE test_db.orders ENGINE = MyISAM 
+10 | 1.00194400 | ALTER TABLE test_db.orders ENGINE = InnoDB  
+```
 ## Задача 4 
 
 Изучите файл `my.cnf` в директории /etc/mysql.
