@@ -1,0 +1,16 @@
+env: demo
+yc_project_name: stage
+ansible_user: centos
+ansible_python_interpreter: /usr/bin/python
+log_root: "/var/log/{{ service }}"
+custom_nginx: true
+env_asserts:
+  - APP_VERSION
+  - SERVICE
+  - CI_PROJECT_ID
+
+users:
+  # Sergey 
+  - username: Sergey
+    state: present
+    key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDR1Mbb+eilrBcLCDg208e7kii/sGsKLp6Yk8DgDLOgAdcl0fw90dGutXSlsXCvuKDi1ScG1KP59xZTgvEZfzsLd8GKUBSM5biXURbTFcdo6A+VLFkInv2sbTI2ZcWSegpt0RXu9mJMyqkb/HP+DkTGsHKCsl7j2oRNBl9gOrAInMGPtNbyfTjRa4cv3+Y4QBJygOCXXDd3u9rivyHoormOtQiRVAJi8SLHFrcdD7EH51as+NOMfovj5JvkHCz71WC4ioIDbvoovqO6FBQ4poOOauSCJYwsSgYdbULnKw1xJAocs9siueYu3SmsWAdEiPgelpjXWsM2/4n3UJhmoXrF
