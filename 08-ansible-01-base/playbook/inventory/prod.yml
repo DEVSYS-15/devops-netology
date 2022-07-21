@@ -1,9 +1,14 @@
 ---
   el:
     hosts:
-      centos7:
+      centos7-netology:
         ansible_connection: docker
+        
   deb:
     hosts:
-      ubuntu:
+      ubuntu-netology:
+        ansible_connection: docker
+  fd:
+    hosts:
+      fedora-netology:
         ansible_connection: docker

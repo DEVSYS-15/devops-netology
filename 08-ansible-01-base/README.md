@@ -2,29 +2,59 @@
 
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.
---- bash
-        ansible [core 2.13.2]
-        config file = None
-        configured module search path = ['/home/serz/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-        ansible python module location = /home/serz/.local/lib/python3.10/site-packages/ansible
-        ansible collection location = /home/serz/.ansible/collections:/usr/share/ansible/collections
-        executable location = /home/serz/.local/bin/ansible
-        python version = 3.10.5 (main, Jun 10 2022, 10:06:05) [GCC]
-        jinja version = 3.1.2
-        libyaml = True
-----  
+```text
+ansible [core 2.13.2]
+config file = None
+python version = 3.10.5 (main, Jun 10 2022, 10:06:05) [GCC]
+jinja version = 3.1.2
+libyaml = True
+```  
 2. Создайте свой собственный публичный репозиторий на github с произвольным именем.
+[создан](https://github.com/DEVSYS-15/devops-netology/tree/main/08-ansible-01-base)
 3. Скачайте [playbook](./playbook/) из репозитория с домашним заданием и перенесите его в свой репозиторий.
+- выполнено
 
 ## Основная часть
 1. Попробуйте запустить playbook на окружении из `test.yml`, зафиксируйте какое значение имеет факт `some_fact` для указанного хоста при выполнении playbook'a.
+```text
+ok: [localhost] => {
+    "msg": 12
+}
+```
 2. Найдите файл с переменными (group_vars) в котором задаётся найденное в первом пункте значение и поменяйте его на 'all default fact'.
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
+- создано окружение на бузе KVM
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
+```text
+ok: [192.168.100.187] => {
+    "msg": "el"
+}
+ok: [192.168.100.164] => {
+    "msg": "deb"
+}
+```
 5. Добавьте факты в `group_vars` каждой из групп хостов так, чтобы для `some_fact` получились следующие значения: для `deb` - 'deb default fact', для `el` - 'el default fact'.
 6.  Повторите запуск playbook на окружении `prod.yml`. Убедитесь, что выдаются корректные значения для всех хостов.
+```text
+TASK [Print OS] 
+ok: [192.168.100.187] => {
+    "msg": "CentOS"
+}
+ok: [192.168.100.164] => {
+    "msg": "Ubuntu"
+}
+
+TASK [Print fact] 
+ok: [192.168.100.187] => {
+    "msg": "el default fact"
+}
+ok: [192.168.100.164] => {
+    "msg": "deb default fact"
+}
+```
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
+- ansible-playbook -i playbook/inventory/prod.yml  playbook/site.yml --ask-vault-pass
 9. Посмотрите при помощи `ansible-doc` список плагинов для подключения. Выберите подходящий для работы на `control node`.
 10. В `prod.yml` добавьте новую группу хостов с именем  `local`, в ней разместите localhost с необходимым типом подключения.
 11. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь что факты `some_fact` для каждого из хостов определены из верных `group_vars`.
