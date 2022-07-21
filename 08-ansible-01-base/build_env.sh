@@ -8,7 +8,7 @@ for i in $DIMG; do
     docker run --name $i-$PRREFIX  -it -d $i:$TAG  
 done
 
-ansible-playbook  -i playbook/inventory/prod.yml playbook/site.yml
+ansible-playbook  -i playbook/inventory/prod.yml playbook/site.yml --vault-password-file pswd
 
 for i in $DIMG; do
    echo -e $(docker kill  $i-$PRREFIX ) is stop
